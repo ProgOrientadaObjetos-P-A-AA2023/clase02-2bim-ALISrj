@@ -13,28 +13,36 @@ import java.util.Scanner;
  * @author reroes
  */
 public class Ejecutor2 {
+
     public static void main(String[] args) {
         // 1. Crear y presentar un obj de tipo Estudiante Presencial,
         // con datos por teclado
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
-        System.out.println("Ingrese nombre");
-        String n = entrada.nextLine();
-        System.out.println("Ingrese apellido");
-        String ap = entrada.nextLine();
-        System.out.println("Ingrese identificación");
-        String ced = entrada.nextLine();
-        System.out.println("Ingrese edad");
-        int edad = entrada.nextInt();
-        System.out.println("Ingrese número de créditos");
-        int creditos = entrada.nextInt();
-        System.out.println("Ingrese costo de créditos");
-        double costo = entrada.nextInt();
-        
-        EstudiantePresencial presencial = new EstudiantePresencial(n, ap, ced, 
-                edad, creditos, costo);
-        presencial.calcularMatriculaPresencial();
-        
-        System.out.printf("%s\n", presencial);
+        EstudiantePresencial[] estudiantes = new EstudiantePresencial[4];
+
+        for (int i = 0; i < estudiantes.length; i++) {
+            System.out.printf("\nIngrese el estudiante nro %d\n", i + 1);
+            System.out.println("Ingrese nombre");
+            String n = entrada.nextLine();
+            System.out.println("Ingrese apellido");
+            String ap = entrada.nextLine();
+            System.out.println("Ingrese identificación");
+            String ced = entrada.nextLine();
+            System.out.println("Ingrese edad");
+            int edad = entrada.nextInt();
+            System.out.println("Ingrese número de créditos");
+            int creditos = entrada.nextInt();
+            System.out.println("Ingrese costo de créditos");
+            double costo = entrada.nextInt();
+            entrada.nextLine();
+            estudiantes[i] = new EstudiantePresencial(n, ap, ced,
+                    edad, creditos, costo);
+            estudiantes[i].calcularMatriculaPresencial();
+        }
+
+        for (int i = 0; i < estudiantes.length; i++) {
+            System.out.printf("%s\n",estudiantes[i]);
+        }
     }
 }
