@@ -42,7 +42,7 @@ public class Ejecutor2 {
         }
 
         for (int i = 0; i < estudiantes.length; i++) {
-            System.out.printf("%s\n",estudiantes[i]);
+            System.out.printf("Estudiante %d\n%s\n",i+1,estudiantes[i]);
         }
     }
 }
